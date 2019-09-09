@@ -8,14 +8,16 @@ import HomeScore from '../HomeScore';
 import AwayScore from '../AwayScore';
 
 function App() {
+  const HOME = 'home';
+  const AWAY = 'away';
+
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
 
-  const touchDownHome = () => setHomeScore(homeScore + 7);
-  const fieldGoalHome = () => setHomeScore(homeScore + 3);
-
-  const touchDownAway = () => setAwayScore(awayScore + 7);
-  const fieldGoalAway = () => setAwayScore(awayScore + 3);
+  const touchDown = team =>
+    team === HOME ? setHomeScore(homeScore + 7) : setAwayScore(awayScore + 7);
+  const fieldGoal = team =>
+    team === HOME ? setHomeScore(homeScore + 3) : setAwayScore(awayScore + 3);
 
   return (
     <div className="container">
@@ -29,8 +31,14 @@ function App() {
       </section>
 
       <section className="buttons">
-        <HomeButtons touchDown={touchDownHome} fieldGoal={fieldGoalHome} />
-        <AwayButtons touchDown={touchDownAway} fieldGoal={fieldGoalAway} />
+        <HomeButtons
+          touchDown={() => touchDown('home')}
+          fieldGoal={() => fieldGoal('home')}
+        />
+        <AwayButtons
+          touchDown={() => touchDown('away')}
+          fieldGoal={() => fieldGoal('away')}
+        />
       </section>
     </div>
   );
