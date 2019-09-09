@@ -9,7 +9,6 @@ import AwayScore from '../AwayScore';
 
 function App() {
   const HOME = 'home';
-  const AWAY = 'away';
 
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
