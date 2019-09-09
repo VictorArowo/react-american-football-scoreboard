@@ -2,7 +2,7 @@ import React from 'react';
 import './Components/App/App.css';
 import Quarter from './Components/Quarter';
 
-const BottomRow = () => {
+const BottomRow = props => {
   return (
     <div className="bottomRow">
       <div className="down">
@@ -17,7 +17,7 @@ const BottomRow = () => {
         <h3 className="ballOn__title">Ball on</h3>
         <div className="ballOn__value">21</div>
       </div>
-      <Quarter />
+      <Quarter currentTime={props.currentTime} />
     </div>
   );
 };

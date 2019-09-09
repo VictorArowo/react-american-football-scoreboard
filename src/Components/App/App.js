@@ -6,12 +6,15 @@ import HomeButtons from '../HomeButtons';
 import AwayButtons from '../AwayButtons';
 import HomeScore from '../HomeScore';
 import AwayScore from '../AwayScore';
+import Timer from '../Timer';
 
 function App() {
   const HOME = 'home';
 
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
+
+  const [currentTime, setTime] = useState(1500);
 
   const touchDown = team =>
     team === HOME ? setHomeScore(homeScore + 7) : setAwayScore(awayScore + 7);
@@ -23,10 +26,10 @@ function App() {
       <section className="scoreboard">
         <div className="topRow">
           <HomeScore homeScore={homeScore} />
-          <div className="timer">00:03</div>
+          <Timer currentTime={currentTime} setTime={setTime} />
           <AwayScore awayScore={awayScore} />
         </div>
-        <BottomRow />
+        <BottomRow currentTime={currentTime} />
       </section>
 
       <section className="buttons">
