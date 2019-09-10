@@ -12,6 +12,9 @@
   margin-top: 10rem;
   padding: 5rem;
   border: 4px solid #aaaaaa;
+  background-image: url("../../img/field.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .topRow {
@@ -119,4 +122,9 @@
 .awayButtons__fieldGoal {
   margin: 1rem;
   border-radius: 4px;
+}
+
+button:disabled:hover{
+  background: initial;
+  cursor: not-allowed;
 }
